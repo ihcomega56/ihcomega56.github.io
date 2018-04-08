@@ -1,4 +1,76 @@
-.account_icons{
+/* TODO: あとでまとめる */
+
+body {
+  text-align: center;
+}
+
+ul {
+  -webkit-padding-start: 0;
+}
+
+header {
+  margin-bottom: 50px;
+}
+section {
+  margin-bottom: 50px;
+}
+
+.explanation {
+  color: rgba(13, 0, 76, 0.93);
+  padding: 0 20%;
+}
+
+.emphasized {
+  font-weight: bolder;
+  background-color: rgba(34, 69, 56, 0.21);
+  border-radius: 0.3em;
+}
+
+.font_small {
+  font-size: 0.8em;
+}
+
+.more {
+  padding-top: calc((300px - 1em) / 2);
+}
+
+.slides {
+  padding: 0 10%;
+}
+
+.slide {
+  float: left;
+  width: 21%;
+  height: 300px;
+  background-color: rgba(110, 143, 144, 0.21);
+  border-radius: 3%;
+  margin: 2%;
+}
+
+.slide_content {
+  padding: 10px;
+}
+
+.slide_description {
+  font-size: 0.7em;
+}
+
+.communities {
+  clear: both;
+  padding: 0 10%;
+}
+
+.community {
+  max-width: 300px;
+  display: inline-block;
+}
+
+.community_logo {
+  width: 200px;
+  padding: 10px;
+}
+
+.account_icon {
   display: inline;
   font-size: 3em;
 }
