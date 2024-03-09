@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -40,12 +41,15 @@
         .tiles {
             display: flex;
             justify-content: space-between;
-            max-width: 80%; /* 画面の80%までに制限 */
-            margin: 0 auto; /* 中央寄せ */
+            max-width: 80%;
+            /* 画面の80%までに制限 */
+            margin: 0 auto;
+            /* 中央寄せ */
         }
 
         .tile {
-            width: 23%; /* 幅を調整 */
+            width: 23%;
+            /* 幅を調整 */
             margin-bottom: 20px;
             position: relative;
             overflow: hidden;
@@ -113,15 +117,19 @@
         }
 
         .random-images img {
-            width: 30%; /* 幅を調整 */
+            width: 30%;
             margin-bottom: 20px;
-            cursor: pointer; /* マウスオーバーでカーソルをポインタに変更 */
+            /* マウスオーバーでカーソルをポインタに変更 */
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s, transform 0.5s;
         }
 
-        /* .random-images img:nth-of-type(2) { */
-            /* position: absolute; */
-            /* top: 10%; */
-        /* } */
+        .random-images img.in-viewport {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
         .overlay-text {
             position: absolute;
@@ -140,6 +148,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <header>
@@ -183,7 +192,7 @@
         </div>
 
         <div class="random-images">
-            <img src="images/random1.png" alt="ランダム画像1" style="position: relative;">
+            <img src="images/random1.png" alt="ランダム画像1">
             <div class="overlay-text">制作に対する思い<br>サンプルテキスト</div>
             <img src="images/random2.png" alt="ランダム画像2">
             <img src="images/random3.png" alt="ランダム画像3">
@@ -195,5 +204,40 @@
         <p>&copy; 2024 社名. All Rights Reserved.</p>
     </footer>
 
+    <script>
+        // スクロール時に画像をフェードイン・アウトさせる処理
+        window.addEventListener("load", function () {
+            const randomImages = document.querySelectorAll(".random-images img");
+
+            function checkInView(element) {
+                const rect = element.getBoundingClientRect();
+                return (
+                    rect.top <= window.innerHeight &&
+                    rect.bottom >= 0
+                );
+            }
+
+            function handleScroll() {
+                randomImages.forEach((image) => {
+                    if (checkInView(image)) {
+                        image.classList.add("in-viewport");
+                        image.style.transition = "opacity 5s";
+                        image.style.opacity = "1";
+                    } else {
+                        image.classList.remove("in-viewport");
+                        image.style.transition = "opacity 5s";
+                        image.style.opacity = "0";
+                    }
+                });
+            }
+
+            window.addEventListener("scroll", handleScroll);
+            window.addEventListener("resize", handleScroll);
+            handleScroll(); // 初期表示時にも実行
+        });
+
+
+    </script>
 </body>
+
 </html>
