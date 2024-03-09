@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>写真撮影会社名</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+        }
+
+        header img {
+            max-width: 100%;
+            width: 100%;
+            height: auto;
+        }
+
+        section {
+            padding: 40px;
+            text-align: left;
+        }
+
+        section h1 {
+            font-size: 2em;
+        }
+
+        section p {
+            margin-bottom: 20px;
+        }
+
+        .tiles {
+            display: flex;
+            justify-content: space-between;
+            max-width: 80%; /* 画面の80%までに制限 */
+            margin: 0 auto; /* 中央寄せ */
+        }
+
+        .tile {
+            width: 23%; /* 幅を調整 */
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .tile:hover {
+            transform: scale(1.05);
+        }
+
+        .tile img {
+            width: 100%;
+            height: auto;
+        }
+
+        .tile-details {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 10px;
+            width: 80%;
+            display: none;
+        }
+
+        .tile:hover .tile-details {
+            display: block;
+        }
+
+        .tile-title {
+            color: #000;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 10px;
+            text-align: center;
+        }
+
+        .tile .detail-text {
+            color: #000;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 10px;
+            text-align: center;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+
+        .tile:hover .detail-text {
+            transform: translateY(100%);
+        }
+
+        .random-images {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .random-images img {
+            width: 30%; /* 幅を調整 */
+            margin-bottom: 20px;
+            cursor: pointer; /* マウスオーバーでカーソルをポインタに変更 */
+        }
+
+        /* .random-images img:nth-of-type(2) { */
+            /* position: absolute; */
+            /* top: 10%; */
+        /* } */
+
+        .overlay-text {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="images/header.png" alt="ヘッダー">
+    </header>
+
+    <section>
+        <h1>ブランドメッセージ</h1>
+        <p>サンプルメッセージを入力します（1行目）</p>
+        <p>サンプルメッセージを入力します（2行目）</p>
+
+        <div class="tiles">
+            <div class="tile">
+                <img src="images/image1.png" alt="写真1">
+                <div class="tile-details">
+                    <div class="detail-text">詳細情報1</div>
+                </div>
+                <div class="tile-title">写真のタイトル1</div>
+            </div>
+            <div class="tile">
+                <img src="images/image2.png" alt="写真2">
+                <div class="tile-details">
+                    <div class="detail-text">詳細情報2</div>
+                </div>
+                <div class="tile-title">写真のタイトル2</div>
+            </div>
+            <div class="tile">
+                <img src="images/image3.png" alt="写真3">
+                <div class="tile-details">
+                    <div class="detail-text">詳細情報3</div>
+                </div>
+                <div class="tile-title">写真のタイトル3</div>
+            </div>
+            <div class="tile">
+                <img src="images/image4.png" alt="写真4">
+                <div class="tile-details">
+                    <div class="detail-text">詳細情報4</div>
+                </div>
+                <div class="tile-title">写真のタイトル4</div>
+            </div>
+        </div>
+
+        <div class="random-images">
+            <img src="images/random1.png" alt="ランダム画像1" style="position: relative;">
+            <div class="overlay-text">制作に対する思い<br>サンプルテキスト</div>
+            <img src="images/random2.png" alt="ランダム画像2">
+            <img src="images/random3.png" alt="ランダム画像3">
+        </div>
+
+    </section>
+
+    <footer>
+        <p>&copy; 2024 社名. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
